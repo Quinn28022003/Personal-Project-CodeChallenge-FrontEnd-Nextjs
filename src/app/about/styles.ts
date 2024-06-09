@@ -6,7 +6,6 @@ interface IStyles {
 }
 
 const useStyles = createStyles((_, { test }: IStyles) => {
-	console.log('token: ', test)
 	return {
 		styles: {
 			...tw`text-red-500`

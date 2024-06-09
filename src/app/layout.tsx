@@ -1,11 +1,12 @@
+import Providers from '@/components/Providers'
 import type { Metadata } from 'next'
 import { NextFont } from 'next/dist/compiled/@next/font'
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 
-import './globals.css'
-
-const inter: NextFont = Inter({
-	subsets: ['latin']
+const inter: NextFont = Roboto({
+	subsets: ['latin'],
+	weight: ['500', '700'],
+	display: 'swap'
 })
 
 export const metadata: Metadata = {
@@ -19,7 +20,9 @@ const AppLayout = ({
 	children: React.ReactNode
 }>) => (
 	<html lang="en">
-		<body className={inter.className}>{children}</body>
+		<body className={inter.className}>
+			<Providers>{children}</Providers>
+		</body>
 	</html>
 )
 

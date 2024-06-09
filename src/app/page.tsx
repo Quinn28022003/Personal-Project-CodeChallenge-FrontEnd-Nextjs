@@ -1,17 +1,23 @@
 'use client'
-import Button from 'antd/lib/Button'
+import { useAppDispatch, useAppSelector } from '@/lib/store/hooks/hooks'
+import { decrement, increment, incrementByAmount } from '@/lib/store/slices/todosSlice'
 
-import Providers from '@/components/Providers'
+const App = () => {
+	const data = useAppSelector(state => state.value)
+	const dispatch = useAppDispatch()
 
-const App = () => (
-	<Providers>
+	return (
 		<div>
-			hello
-			<h1 />
-			<Button className="text-red-500">Click me</Button>
-			<div />
+			<h1>Count: {data} </h1>
+			<button onClick={() => dispatch(increment())}>Increment</button>
+			<button onClick={() => dispatch(decrement())}>Decrement</button>
+			<input
+				type="text"
+				placeholder="Hãy nhập vào đây..."
+				onChange={e => dispatch(incrementByAmount(Number(e.target.value)))}
+			/>
 		</div>
-	</Providers>
-)
+	)
+}
 
 export default App

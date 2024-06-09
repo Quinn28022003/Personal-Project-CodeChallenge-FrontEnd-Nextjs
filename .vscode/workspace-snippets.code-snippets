@@ -31,7 +31,11 @@
 			"import { createStyles } from 'antd-style';",
 			"import tw from 'twin.macro';",
 			"",
-			"const useStyles = createStyles(({ token }) => {",
+			"interface I$TM_FILENAME_BASE${0} {",
+			"   test: string",
+			"}",
+			"",
+			"const useStyles = createStyles(( _,{test}: I$TM_FILENAME_BASE${0} ) => {",
 			" return {",
 			"   $TM_FILENAME_BASE${0}: {",
 			"     ...tw``,",
@@ -49,5 +53,47 @@
 		"prefix": "imps",
 		"body": ["", "import useStyles from './styles';", ""],
 		"description": "antd-style"
+	},
+	"create-variable-styles": {
+		"prefix": "cvstyles",
+		"body": ["", "const { styles } = useStyles({});", ""],
+		"description": "create-variable-styles"
+	},
+	"create-func-layout": {
+		"prefix": "funcLayout",
+		"body": [
+			"import type { Metadata } from 'next'",
+			"import { NextFont } from 'next/dist/compiled/@next/font'",
+			"import { Roboto } from 'next/font/google'",
+			"",
+			"const inter: NextFont = Roboto({",
+			"   subsets: ['latin'],",
+			"   weight: ['500', '700'],",
+			"   display: 'swap'",
+			"})",
+			"",
+			"   export const metadata: Metadata = {",
+			"   title: 'test',",
+			"  description: 'test'",
+			"}",
+			"",
+			"const AppLayout = ({",
+			"   children",
+			"}: Readonly<{",
+			"   children: React.ReactNode",
+			"}>) => (",
+			"   <html lang='en'>",
+			"      <body className={inter.className}>{children}</body>",
+			"   </html>",
+			")",
+			"",
+			"export default AppLayout"
+		],
+		"description": "create-func-layout"
+	},
+	"create-func-page": {
+		"prefix": "funcPage",
+		"body": [""],
+		"description": "create-func-page"
 	}
 }
