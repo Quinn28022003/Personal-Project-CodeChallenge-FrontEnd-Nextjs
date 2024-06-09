@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
+import { NextFont } from 'next/dist/compiled/@next/font'
 import { Inter } from 'next/font/google'
+
 import './globals.css'
 
-const inter = Inter({
+const inter: NextFont = Inter({
 	subsets: ['latin']
 })
 
