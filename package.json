@@ -1,0 +1,84 @@
+{
+	"name": "code-challenge-fe",
+	"version": "0.1.0",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"prepare": "husky install",
+		"lint": "eslint --fix",
+		"pretty": "prettier --write",
+		"format": "eslint --fix \"src/**/*.{ts,tsx}\" && prettier --write \"src/**/*.{ts,tsx}\"",
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"next-lint": "next lint"
+	},
+	"dependencies": {
+		"antd": "^5.18.0",
+		"antd-style": "^3.6.2",
+		"next": "14.2.3",
+		"react": "^18",
+		"react-dom": "^18",
+		"swr": "^2.2.5"
+	},
+	"devDependencies": {
+		"@babel/plugin-syntax-typescript": "^7.24.7",
+		"@commitlint/cli": "^19.3.0",
+		"@commitlint/config-conventional": "^19.2.2",
+		"@emotion/react": "^11.11.4",
+		"@emotion/styled": "^11.11.5",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"@typescript-eslint/eslint-plugin": "^7.12.0",
+		"@typescript-eslint/parser": "^7.0.0",
+		"autoprefixer": "^10.4.19",
+		"babel-loader": "^9.1.3",
+		"babel-plugin-macros": "^3.1.0",
+		"eslint": "^8",
+		"eslint-config-next": "^14.2.3",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-config-standard": "^17.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-n": "^16.6.2",
+		"eslint-plugin-prefer-arrow-functions": "^3.3.2",
+		"eslint-plugin-prettier": "^5.1.3",
+		"eslint-plugin-promise": "^6.2.0",
+		"eslint-plugin-react": "^7.34.2",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.5",
+		"postcss": "^8",
+		"prettier": "^3.3.1",
+		"prettier-eslint": "^16.3.0",
+		"prettier-plugin-organize-imports": "^3.2.4",
+		"prettier-plugin-tailwindcss": "^0.6.2",
+		"rimraf": "^5.0.7",
+		"tailwindcss": "^3.4.1",
+		"twin.macro": "^3.4.1",
+		"typescript": "^5"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"yarn lint",
+			"yarn pretty"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}
