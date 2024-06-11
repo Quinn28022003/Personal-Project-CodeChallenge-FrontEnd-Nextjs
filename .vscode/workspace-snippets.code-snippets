@@ -91,9 +91,21 @@
 		],
 		"description": "create-func-layout"
 	},
-	"create-func-page": {
-		"prefix": "funcPage",
-		"body": [""],
-		"description": "create-func-page"
+	"create-func-component": {
+		"prefix": "funcComponent",
+		"body": [
+			"import styles from './styles.module.scss'",
+			"",
+			"const Component = () => {",
+			"   return (",
+			"   <div className={`${styles.Component}`}>",
+			"       <h1>Component</h1>",
+			"</div>",
+			" )",
+			"}",
+			"",
+			"export default Component"
+		],
+		"description": "create-func-component"
 	}
 }

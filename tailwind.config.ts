@@ -33,25 +33,17 @@ const config: Config = {
 				text: '#272727',
 				link: '#32a1c8',
 				info: '#40a9ff',
-				primary: '04AA6D',
+				primary: '#04AA6D',
 				success: '#2fce00',
 				warning: '#fea800',
 				error: '#ff494e',
-				subPrimary: 'rgb(240 253 244 / var(--tw-bg-opacity))',
-				darkMode: 'rgb(31 41 55 / var(--tw-bg-opacity))'
+				subPrimary: '#04aa6d',
+				darkMode: '#1f2937'
 			}
 		}
 	},
-	plugins: [
-		// ? 'max-lg:mb-0 max-lg:mt-0' can be written as 'max-lg:merge-[mb-0, mt-0]'
-		({ matchUtilities }: { matchUtilities: any }) => {
-			matchUtilities({
-				merge: (value: string) => ({
-					[`@apply ${value.replaceAll(', ', ' ')}`]: {}
-				})
-			})
-		}
-	],
+	plugins: [],
+	darkMode: 'class',
 	corePlugins: {
 		preflight: false
 	}

@@ -10,20 +10,20 @@ const inter: NextFont = Roboto({
 })
 
 export const metadata: Metadata = {
-	title: 'Home page',
+	title: 'Code Challenge',
 	description: `Challenge your coding skills with CodeMaster. Explore a variety of coding problems, improve your programming abilities, and join a community of passionate developers.`
 }
 
-const AppLayout = ({
+const RootLayout = ({
 	children
 }: Readonly<{
 	children: React.ReactNode
 }>) => (
-	<html lang="en">
+	<html lang="en" suppressHydrationWarning>
 		<body className={inter.className}>
 			<Providers>{children}</Providers>
 		</body>
 	</html>
 )
 
-export default AppLayout
+export default RootLayout

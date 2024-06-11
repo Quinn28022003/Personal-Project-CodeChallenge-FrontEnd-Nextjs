@@ -1,0 +1,21 @@
+@use 'src/styles/mixins.scss' as mixins;
+
+.title {
+	@apply text-red-500;
+	@include mixins.max-lg {
+		@apply text-purple-500;
+	}
+	@include mixins.max-md {
+		@apply text-blue-500;
+	}
+	& .description {
+		@apply text-green-400;
+	}
+}
+
+.containerTitle {
+	@apply text-purple-400;
+	& .description {
+		@apply text-primary;
+	}
+}

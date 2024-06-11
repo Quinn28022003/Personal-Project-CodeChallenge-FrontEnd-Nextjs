@@ -8,7 +8,7 @@
 	// ? Config for Tailwind CSS
 	"editor.autoClosingQuotes": "always",
 	"tailwindCSS.experimental.classRegex": [
-		"tw`([^`]*)" // tw`...`
+		"`([^`]*)`" // `...`
 	],
 	"tailwindCSS.includeLanguages": {
 		"typescript": "javascript",
