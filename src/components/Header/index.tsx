@@ -1,8 +1,10 @@
+import Image from 'next/image'
+
 import styles from './styles.module.scss'
 
 const Header = () => (
 	<div className={`${styles.Header}`}>
-		<h1>Header</h1>
+		<Image src={'/next.svg'} alt="Picture of the author" width={1920} height={1080} className={styles.logo} />
 	</div>
 )
 

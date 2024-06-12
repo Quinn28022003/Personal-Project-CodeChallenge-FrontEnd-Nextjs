@@ -1,2 +1,7 @@
+@use 'src/styles/mixins.scss' as mixins;
+
 .Header {
+	& .logo {
+		@apply h-[70px] w-[90px];
+	}
 }
