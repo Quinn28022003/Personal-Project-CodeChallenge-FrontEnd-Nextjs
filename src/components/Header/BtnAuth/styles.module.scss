@@ -1,0 +1,12 @@
+@use 'src/styles/mixins.scss' as mixins;
+
+.BtnAuth {
+	@apply flex justify-center gap-7;
+	& .line {
+		@apply h-[30px] w-[1px] border-[1px] border-solid border-gray-500;
+	}
+	& .btn {
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+}

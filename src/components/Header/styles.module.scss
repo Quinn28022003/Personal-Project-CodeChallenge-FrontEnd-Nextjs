@@ -1,7 +1,15 @@
 @use 'src/styles/mixins.scss' as mixins;
 
 .Header {
+	@apply relative flex h-[70px] w-full items-center justify-between bg-white;
+	padding: 0px 60px;
 	& .logo {
 		@apply h-[70px] w-[90px];
+	}
+	& .contentBetween {
+		@apply absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center;
+	}
+	& .contentRight {
+		@apply flex justify-center gap-7;
 	}
 }

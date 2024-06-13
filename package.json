@@ -14,11 +14,13 @@
 		"next-lint": "next lint"
 	},
 	"dependencies": {
+		"@ant-design/icons": "^5.3.7",
 		"@ant-design/nextjs-registry": "^1.0.0",
 		"@reduxjs/toolkit": "^2.2.5",
 		"@types/react-redux": "^7.1.33",
 		"antd": "^5.18.0",
 		"axios": "^1.7.2",
+		"js-cookie": "^3.0.5",
 		"next": "14.2.3",
 		"next-themes": "^0.3.0",
 		"react": "^18",
@@ -35,6 +37,7 @@
 		"@commitlint/config-conventional": "^19.2.2",
 		"@emotion/react": "^11.11.4",
 		"@emotion/styled": "^11.11.5",
+		"@types/js-cookie": "^3.0.6",
 		"@types/node": "^20",
 		"@types/nprogress": "^0.2.3",
 		"@types/react": "^18",

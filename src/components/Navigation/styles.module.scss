@@ -1,2 +1,9 @@
 .Navigation {
+	@apply top-[70px] block h-full w-full max-w-[1920px] items-start bg-white;
+	margin: 0px auto;
+	& .container {
+	}
+	& .menu {
+		@apply block border-b-0 text-center;
+	}
 }
