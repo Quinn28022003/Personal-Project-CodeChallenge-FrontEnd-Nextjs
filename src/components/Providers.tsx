@@ -3,6 +3,7 @@ import '@/styles/globals.scss'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 import { ConfigProvider } from 'antd'
 import Cookies from 'js-cookie'
+import { usePathname } from 'next/navigation'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { AppStore, makeStore } from '@/lib/store/store'
@@ -17,15 +18,20 @@ interface IProviderProps {
 }
 
 const Providers = ({ children }: IProviderProps) => {
-	const { theme } = useTheme()
+	const pathname = usePathname()
 
-	// Check if theme cookie is set, and set it if not
+	const { theme } = useTheme()
 	if (!Cookies.get('theme')) {
 		Cookies.set('theme', theme ?? 'light', {
 			expires: 3650,
 			secure: true
 		})
 	}
+
+	Cookies.set('currentPath', pathname, {
+		expires: 3650,
+		secure: true
+	})
 
 	const storeRef = useRef<AppStore>()
 	if (!storeRef.current) {

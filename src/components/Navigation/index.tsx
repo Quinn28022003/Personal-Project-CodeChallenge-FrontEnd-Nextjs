@@ -2,8 +2,10 @@
 import { Menu } from 'antd'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import getCurrentPath from '@/utils/getCurrentPath'
 import getInitialTheme from '@/utils/getInitialTheme'
 import styles from './styles.module.scss'
 
@@ -11,30 +13,32 @@ const Navigation = () => {
 	const { theme } = useTheme()
 	const [mounted, setMounted] = useState(false)
 	const { darkMode } = getInitialTheme()
+	const { currentPath } = getCurrentPath()
+	const pathname = usePathname()
 
 	const items = [
 		{
-			key: 'home',
+			key: '/',
 			label: <Link href="/">Trang chủ</Link>,
 			path: '/'
 		},
 		{
-			key: 'reviewer',
+			key: '/reviewer',
 			label: <Link href="/reviewer">Reviewer</Link>,
 			path: '/reviewer'
 		},
 		{
-			key: 'challenge',
+			key: '/challenge',
 			label: <Link href="/challenge">Thử thách</Link>,
 			path: '/challenge'
 		},
 		{
-			key: 'chat',
+			key: '/chat',
 			label: <Link href="/chat">Trò chuyện</Link>,
 			path: '/chat'
 		},
 		{
-			key: 'seerequest',
+			key: '/see-request',
 			label: <Link href="/see-request">Xem yêu cầu</Link>,
 			path: '/see-request'
 		}
@@ -51,7 +55,7 @@ const Navigation = () => {
 				<Menu
 					className={`${styles.menu} dark:bg-darkMode`}
 					theme={darkMode}
-					// selectedKeys={[currentMenuKey]}
+					selectedKeys={[currentPath ?? '']}
 					// mode={`${showNav === false ? 'horizontal' : 'inline'}`}
 					mode={'horizontal'}
 					items={items}
@@ -66,7 +70,7 @@ const Navigation = () => {
 			<Menu
 				className={`${styles.menu} dark:bg-darkMode`}
 				theme={theme === 'dark' ? 'dark' : 'light'}
-				// selectedKeys={[currentMenuKey]}
+				selectedKeys={[pathname]}
 				// mode={`${showNav === false ? 'horizontal' : 'inline'}`}
 				mode={'horizontal'}
 				items={items}

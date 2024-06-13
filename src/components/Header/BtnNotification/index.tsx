@@ -8,7 +8,11 @@ import { userList } from '@/components/Header'
 import getInitialTheme from '@/utils/getInitialTheme'
 import styles from './styles.module.scss'
 
-const BtnNotification = ({ initialData }: { initialData: userList }) => {
+interface IBtnNotificationProps {
+	initialData: userList
+}
+
+const BtnNotification = ({ initialData }: IBtnNotificationProps) => {
 	const { theme } = useTheme()
 	const [mounted, setMounted] = useState(false)
 	const { darkMode } = getInitialTheme()

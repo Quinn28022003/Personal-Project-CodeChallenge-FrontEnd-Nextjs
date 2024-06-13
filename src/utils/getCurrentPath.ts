@@ -1,8 +1,7 @@
-import { MenuTheme } from 'antd'
 import { IncomingHttpHeaders } from 'http'
 
 interface IGetInitialThemeType {
-	darkMode: MenuTheme | undefined
+	currentPath: string | undefined
 }
 
 interface HeadersModule {
@@ -17,19 +16,19 @@ interface HeadersModule {
 	headers: IncomingHttpHeaders
 }
 
-const getInitialTheme = (): IGetInitialThemeType => {
-	let darkMode: MenuTheme | undefined
+const getCurrentPath = (): IGetInitialThemeType => {
+	let currentPath: string | undefined
 
 	if (typeof window === 'undefined') {
 		const headers: HeadersModule = require('next/headers') as HeadersModule
-		darkMode = headers.cookies().get('theme')?.value as MenuTheme
+		currentPath = headers.cookies().get('currentPath')?.value
 		return {
-			darkMode
+			currentPath
 		}
 	}
 	return {
-		darkMode: undefined
+		currentPath: undefined
 	}
 }
 
-export default getInitialTheme
+export default getCurrentPath

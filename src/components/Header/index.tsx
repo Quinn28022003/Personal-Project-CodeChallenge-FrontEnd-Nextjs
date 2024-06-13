@@ -60,7 +60,6 @@ const Header = async () => {
 	})
 	const initialData: userList = (await res.json()) as userList
 
-	console.log('initialData: ', initialData)
 	return (
 		<div className={`${styles.Header} dark:bg-darkMode`}>
 			<Image
@@ -69,6 +68,7 @@ const Header = async () => {
 				width={1920}
 				height={1080}
 				className={styles.logo}
+				priority={true}
 			/>
 			<div className={styles.contentBetween}>
 				<SwitchComponent />
