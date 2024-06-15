@@ -3,12 +3,14 @@ import { Button } from 'antd'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
+import useNavigation from '@/hook/useNavigation'
 import getInitialTheme from '@/utils/getInitialTheme'
 import Link from 'next/link'
 import styles from './styles.module.scss'
 
 const BtnAuth = () => {
 	const { theme } = useTheme()
+	const { showNav } = useNavigation()
 	const [mounted, setMounted] = useState(false)
 	const { darkMode } = getInitialTheme()
 
@@ -24,7 +26,12 @@ const BtnAuth = () => {
 						Đăng ký
 					</Button>
 				</Link>
-				<div className={styles.line} />
+				<div
+					className={styles.line}
+					style={{
+						display: `${showNav === true ? 'none' : 'block'}`
+					}}
+				/>
 				<Link href={'/login'}>
 					<Button ghost={darkMode === 'dark'} className={styles.btn}>
 						Đăng nhập
@@ -41,7 +48,12 @@ const BtnAuth = () => {
 					Đăng ký
 				</Button>
 			</Link>
-			<div className={styles.line} />
+			<div
+				className={styles.line}
+				style={{
+					display: `${showNav === true ? 'none' : 'block'}`
+				}}
+			/>
 			<Link href={'/login'}>
 				<Button ghost={theme === 'dark'} className={styles.btn}>
 					Đăng nhập

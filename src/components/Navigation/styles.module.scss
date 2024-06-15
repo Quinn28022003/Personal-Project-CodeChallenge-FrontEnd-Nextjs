@@ -1,7 +1,11 @@
+@use 'src/styles/mixins.scss' as mixins;
+
 .Navigation {
-	@apply top-[70px] block h-full w-full max-w-[1920px] items-start bg-white;
+	@apply top-[70px] block w-full max-w-[1920px] items-start bg-white;
 	margin: 0px auto;
-	& .container {
+	& .containerSwitch {
+		@apply text-center;
+		margin: 10px 0px;
 	}
 	& .menu {
 		@apply block border-b-0 text-center;

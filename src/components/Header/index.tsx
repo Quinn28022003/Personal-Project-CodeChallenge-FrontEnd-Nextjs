@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import BtnAuth from '@/components/Header/BtnAuth'
+import BtnMenu from '@/components/Header/BtnMenu'
 import BtnNotification from '@/components/Header/BtnNotification'
 import BtnSearch from '@/components/Header/BtnSearch'
 import SwitchComponent from '@/components/Switch'
@@ -76,7 +77,10 @@ const Header = async () => {
 			<div className={styles.contentRight}>
 				<BtnNotification initialData={initialData} />
 				<BtnSearch />
-				<BtnAuth />
+				<div className={styles.containerBtnAuth}>
+					<BtnAuth />
+				</div>
+				<BtnMenu />
 			</div>
 		</div>
 	)

@@ -107,5 +107,41 @@
 			"export default Component"
 		],
 		"description": "create-func-component"
+	},
+	// Css
+	"import mixin responsive": {
+		"prefix": "impsResponsive",
+		"body": ["@use 'src/styles/mixins.scss' as mixins;"],
+		"description": "import mixin responsive"
+	},
+	"responsive according to max-2xl": {
+		"prefix": "max-2xl",
+		"body": ["@include mixins.max-2xl {", "@apply: ;", "}"],
+		"description": "responsive according to max-2xl"
+	},
+	"responsive according to max-xl": {
+		"prefix": "max-xl",
+		"body": ["@include mixins.max-xl {", "@apply: ;", "}"],
+		"description": "responsive according to max-xl"
+	},
+	"responsive according to max-lg": {
+		"prefix": "max-lg",
+		"body": ["@include mixins.max-lg {", "@apply: ;", "}"],
+		"description": "responsive according to max-lg"
+	},
+	"responsive according to max-md": {
+		"prefix": "max-md",
+		"body": ["@include mixins.max-md {", "@apply: ;", "}"],
+		"description": "responsive according to max-md"
+	},
+	"responsive according to max-sm": {
+		"prefix": "max-sm",
+		"body": ["@include mixins.max-sm {", "@apply: ;", "}"],
+		"description": "responsive according to max-sm"
+	},
+	"responsive according to max-xs": {
+		"prefix": "max-xs",
+		"body": ["@include mixins.max-xs {", "@apply: ;", "}"],
+		"description": "responsive according to max-xs"
 	}
 }

@@ -3,13 +3,24 @@
 .Header {
 	@apply relative flex h-[70px] w-full items-center justify-between bg-white;
 	padding: 0px 60px;
+	@include mixins.max-sm {
+		padding: 0px 20px;
+	}
 	& .logo {
 		@apply h-[70px] w-[90px];
 	}
 	& .contentBetween {
 		@apply absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center;
+		@include mixins.max-lg {
+			display: none;
+		}
 	}
 	& .contentRight {
 		@apply flex justify-center gap-7;
+		& .containerBtnAuth {
+			@include mixins.max-lg {
+				display: none;
+			}
+		}
 	}
 }

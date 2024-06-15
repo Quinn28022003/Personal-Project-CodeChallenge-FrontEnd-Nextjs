@@ -2,6 +2,7 @@
 import useDarkMode from '@/hook/useDarkMode'
 import { Switch } from 'antd'
 import { useEffect, useState } from 'react'
+import styles from './styles.module.scss'
 
 import getInitialTheme from '@/utils/getInitialTheme'
 
@@ -20,13 +21,13 @@ const SwitchComponent = () => {
 
 	if (!mounted && darkMode !== undefined) {
 		return (
-			<div>
+			<div className={styles.SwitchComponent}>
 				<Switch checked={darkMode !== 'light'} size="small" />
 			</div>
 		)
 	}
 	return (
-		<div>
+		<div className={styles.SwitchComponent}>
 			<Switch checked={theme === 'dark'} size="small" onChange={onChange} />
 		</div>
 	)

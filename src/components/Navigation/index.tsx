@@ -5,18 +5,27 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import getCurrentPath from '@/utils/getCurrentPath'
+import BtnAuth from '@/components/Header/BtnAuth'
+import SwitchComponent from '@/components/Switch'
+import useNavigation from '@/hook/useNavigation'
+import checkDevice from '@/utils/checkDevice'
 import getInitialTheme from '@/utils/getInitialTheme'
 import styles from './styles.module.scss'
+
+interface IItems {
+	key: string
+	label: React.ReactNode
+	path: string
+}
 
 const Navigation = () => {
 	const { theme } = useTheme()
 	const [mounted, setMounted] = useState(false)
+	const { showNav, handleChangeShowNav } = useNavigation()
 	const { darkMode } = getInitialTheme()
-	const { currentPath } = getCurrentPath()
-	const pathname = usePathname()
-
-	const items = [
+	const pathname: string = usePathname()
+	const initCheckDevice: string = checkDevice()
+	const items: IItems[] = [
 		{
 			key: '/',
 			label: <Link href="/">Trang chủ</Link>,
@@ -44,36 +53,71 @@ const Navigation = () => {
 		}
 	]
 
+	const handleOnchangeMenu = (): void => {
+		if (initCheckDevice === 'mobile' && showNav === true) {
+			handleChangeShowNav(!showNav)
+		}
+	}
+
 	useEffect(() => {
 		setMounted(true)
 	}, [])
 
+	useEffect(() => {
+		const htmlElement: HTMLElement = document.documentElement
+		if (showNav === true) {
+			htmlElement.style.overflow = 'hidden'
+		} else {
+			htmlElement.style.overflow = 'auto'
+		}
+	}, [showNav])
+
 	if (!mounted && darkMode !== undefined) {
 		return (
-			<div className={`${styles.Navigation}`}>
-				<div className={styles.container} />
+			<div className={`${styles.Navigation} dark:bg-darkMode ${showNav === true ? 'fixed z-10' : ''}`}>
+				{showNav === true ? (
+					<div className="container">
+						<div className={styles.container}>
+							<SwitchComponent />
+						</div>
+						<BtnAuth />
+					</div>
+				) : null}
 				<Menu
 					className={`${styles.menu} dark:bg-darkMode`}
 					theme={darkMode}
-					selectedKeys={[currentPath ?? '']}
-					// mode={`${showNav === false ? 'horizontal' : 'inline'}`}
-					mode={'horizontal'}
+					selectedKeys={[pathname]}
+					mode={`${showNav === false ? 'horizontal' : 'inline'}`}
 					items={items}
+					style={{
+						height: `${showNav === true ? '100vh' : '100%'}`
+					}}
 				/>
 			</div>
 		)
 	}
 
 	return (
-		<div className={`${styles.Navigation}`}>
-			<div className={styles.container} />
+		<div className={`${styles.Navigation} dark:bg-darkMode ${showNav === true ? 'fixed z-10' : ''}`}>
+			{showNav === true ? (
+				<>
+					<div className={styles.containerSwitch}>
+						<SwitchComponent />
+					</div>
+					<BtnAuth />
+				</>
+			) : null}
+
 			<Menu
 				className={`${styles.menu} dark:bg-darkMode`}
 				theme={theme === 'dark' ? 'dark' : 'light'}
 				selectedKeys={[pathname]}
-				// mode={`${showNav === false ? 'horizontal' : 'inline'}`}
-				mode={'horizontal'}
+				mode={`${showNav === false ? 'horizontal' : 'inline'}`}
 				items={items}
+				style={{
+					height: `${showNav === true ? '100vh' : '100%'}`
+				}}
+				onClick={handleOnchangeMenu}
 			/>
 		</div>
 	)

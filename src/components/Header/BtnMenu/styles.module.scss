@@ -1,0 +1,12 @@
+@use 'src/styles/mixins.scss' as mixins;
+
+.BtnMenu {
+	display: none;
+	@include mixins.max-lg {
+		display: block;
+	}
+	& .btn {
+		border-color: transparent !important;
+		box-shadow: none !important;
+	}
+}
