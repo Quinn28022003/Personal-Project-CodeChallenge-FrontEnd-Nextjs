@@ -16,9 +16,9 @@ const useNavigation = () => {
 		Dispatch<UnknownAction> = useAppDispatch()
 	const showNav: boolean = useAppSelector(state => state.navigation.showNav)
 
-	const handleChangeShowNav: (showNav: boolean) => void = useCallback(
-		(showNav: boolean): void => {
-			dispatch(setShowNav(!showNav))
+	const handleChangeShowNav = useCallback(
+		(showNav: boolean) => {
+			dispatch(setShowNav(showNav))
 		},
 		[dispatch]
 	)
